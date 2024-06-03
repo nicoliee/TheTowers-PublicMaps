@@ -79,7 +79,7 @@
     <box value="1" filter="only-red" region="blue-scorebox"/>
     <box value="1" filter="only-blue" region="red-scorebox"/>
 </score>
-<time result="objectives" overtime="5m" max-overtime="0s">10m</time>
+<time overtime="2m" max-overtime="5m">10m</time>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90"/>
