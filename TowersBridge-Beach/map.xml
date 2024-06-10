@@ -16,7 +16,7 @@
     <kit id="spawn-kit">
         <item slot="0" unbreakable="true" material="stone sword"/>
         <item slot="1" unbreakable="true" material="bow"/>
-        <item slot="2" unbreakable="true" material="iron pickaxe"/>
+        <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
         <item slot="3" amount="64" material="brick"/>
         <item slot="4" amount="1" material="golden apple"/>
         <item slot="8" amount="8" material="arrow"/>
