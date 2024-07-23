@@ -1,7 +1,7 @@
 <map proto="1.4.2">
 <name>Towers Bridge</name>
 <version>1.0.0</version>
-<created>2024-05-29</created>
+<created>2024-07-22</created>
 <objective>Score 10 points to win.</objective>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
@@ -9,8 +9,8 @@
     <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
 </authors>
 <teams>
-    <team id="blue-team" color="dark blue" max="8">Blue</team>
-    <team id="red-team" color="dark red" max="8">Red</team>
+    <team id="blue-team" color="dark blue" max="2">Blue</team>
+    <team id="red-team" color="dark red" max="2">Red</team>
 </teams>
 <kits>
     <kit id="spawn-kit">
@@ -19,7 +19,7 @@
         <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
         <item slot="3" amount="64" material="brick"/>
         <item slot="4" amount="1" material="golden apple"/>
-        <item slot="8" amount="8" material="arrow"/>
+        <item slot="8" amount="6" material="arrow"/>
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
@@ -30,13 +30,13 @@
         <max-health>1</max-health>
     </kit>
 </kits>
-<maxbuildheight>30</maxbuildheight>
+<maxbuildheight>20</maxbuildheight>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>45, 24, 25</point>
+            <point>0, 18, 0</point>
         </regions>
     </default>
 </spawns>
@@ -46,29 +46,30 @@
     <material id="brick">brick</material>
 </filters>
 <regions>
-    <point id="blue-spawn-point">10.5,29,25.5</point>
-    <point id="red-spawn-point">80.5,29,25.5</point>
+    <point id="blue-spawn-point">-35.5,17,0.5</point>
+    <point id="red-spawn-point">35.5,17,0.5</point>
     <point id="void2">0, -64, 0</point>
     <union id="spawns">
-        <cuboid id="blue-spawn-room" min="8,29,23" max="13.5,34,27.5"/>
-        <cuboid id="red-spawn-room" min="78.5,29,23" max="82.5,34,27.5"/>
-        <cuboid id="sky" min="17,27,-oo" max="73,oo,oo"/>
+        <cuboid id="blue-spawn-room" min="-32,17,3" max="-36,25,-2"/>
+        <cuboid id="red-spawn-room" min="32,16,-3" max="39,25,3"/>
+        <cuboid id="red-sky" min="11,15,-oo" max="28,oo,oo"/>
+        <cuboid id="blue-sky" min="-10,15,-oo" max="-27,oo,oo"/>
     </union>
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="9,22,24" max="12,22.5,27"/>
-        <cuboid id="red-scorebox" min="79,22,24" max="82,22.5,27"/>
+        <cuboid id="blue-scorebox" min="-33,10,-2" max="-37,10.5,2"/>
+        <cuboid id="red-scorebox" min="33,10,-2" max="37,10.5,2"/>
     </union>
     <union id="void">
-        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,10,oo"/>
+        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,0,oo"/>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="You may not build here!"/>
     <apply block="never" message="You may not build in the void!">
         <region>
-            <rectangle min="88,oo" max="oo,-oo"/>
-            <rectangle min="3,oo" max="-oo,-oo"/>
-            <rectangle min="oo,47" max="-oo,oo"/>
-            <rectangle min="oo,3" max="-oo,-oo"/>
+            <rectangle min="45,oo" max="oo,-oo"/>
+            <rectangle min="-45,oo" max="-oo,-oo"/>
+            <rectangle min="oo,25" max="-oo,oo"/>
+            <rectangle min="oo,-25" max="-oo,-oo"/>
         </region>
     </apply>
     <apply block="deny(not(brick))"/>
@@ -105,7 +106,7 @@
     <kill-reward>
 	    <item amount="1" material="golden apple"/>
         <item amount="16" material="brick"/>
-       	<item amount="4" material="arrow"/>
+       	<item amount="3" material="arrow"/>
     </kill-reward>
 </kill-rewards>
 <hunger>
