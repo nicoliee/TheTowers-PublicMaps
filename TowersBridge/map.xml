@@ -30,7 +30,7 @@
         <max-health>1</max-health>
     </kit>
 </kits>
-<maxbuildheight>20</maxbuildheight>
+<maxbuildheight>17</maxbuildheight>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>

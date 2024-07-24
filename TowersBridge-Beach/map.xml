@@ -30,7 +30,7 @@
         <max-health>1</max-health>
     </kit>
 </kits>
-<maxbuildheight>36</maxbuildheight>
+<maxbuildheight>32</maxbuildheight>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
@@ -52,7 +52,7 @@
     <union id="spawns">
         <cuboid id="blue-spawn-room" min="7,32,15" max="13,36,22"/>
         <cuboid id="red-spawn-room" min="78,32,15" max="84,36,22"/>
-        <cuboid id="sky" min="27,30,16" max="64,30.5,21"/>
+        <cuboid id="sky" min="16,30,oo" max="73,oo.5,oo"/>
     </union>
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="9,25,17" max="12,25.5,20"/>
