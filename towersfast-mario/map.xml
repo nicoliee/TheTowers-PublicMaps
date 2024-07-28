@@ -14,17 +14,20 @@
 </teams>
 <kits>
     <kit id="spawn-kit">
-        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="0" unbreakable="true" material="stone sword" />
         <item slot="1" unbreakable="true" material="bow"/>
-        <item slot="2" unbreakable="true" material="iron pickaxe"/>
+        <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
         <item slot="3" amount="64" material="brick"/>
         <item slot="4" amount="1" material="golden apple"/>
-        <item slot="8" amount="8" material="arrow"/>
+        <item slot="8" amount="6" material="arrow"/>
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
-        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
+        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
         <boots team-color="true" unbreakable="true" material="chainmail boots"/>
         <clear/>
+    </kit>
+    <kit id="instakill">
+        <max-health>1</max-health>
     </kit>
 </kits>
 <maxbuildheight>16</maxbuildheight>
@@ -45,6 +48,7 @@
 <regions>
     <point id="blue-spawn-point">84.5,3,0.5</point>
     <point id="red-spawn-point">-83.5,3,0.5</point>
+    <point id="void2">0, -64, 0</point>
     <union id="spawns">
         <cuboid id="blue-spawn-room" min="82,3,-2" max="87,13,3"/>
         <cuboid id="blue-bridge-sky" min="12,6,-22" max="29,oo,22"/>
@@ -57,6 +61,9 @@
         <cuboid id="blue-scorebox" min="83,11,-1" max="86,11.5,2"/>
         <cuboid id="red-scorebox" min="-86,11,-1" max="-82,11.5,2"/>
     </union>
+    <union id="void">
+        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,-8,oo"/>
+    </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="You may not build here!"/>
     <apply block="never" message="You may not build in the void!">
@@ -68,6 +75,7 @@
         </region>
     </apply>
     <apply block="deny(not(brick))"/>
+    <apply region="void1" lend-kit="instakill"/>
 </regions>
 <score>
     <limit>5</limit>
@@ -78,6 +86,7 @@
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@90"/>
+    <portal region="void1" destination="void2" sound="false"/>
 </portals>
 <toolrepair>
     <tool>stone sword</tool>
