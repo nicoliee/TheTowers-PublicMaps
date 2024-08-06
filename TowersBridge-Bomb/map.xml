@@ -52,6 +52,7 @@
     <union id="spawns">
         <cuboid id="blue-spawn" min="-27,13,-2" max="-24,17,2"/>
         <cuboid id="red-spawn" min="23,13,-2" max="27,17,2"/>
+        <cuboid id="sky" min="-18,16,-oo" max="19,oo,oo"/>
     </union>
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="-27,11,-2" max="-23,11.5,2"/>
