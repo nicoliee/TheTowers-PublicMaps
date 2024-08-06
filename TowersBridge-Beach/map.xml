@@ -29,6 +29,10 @@
     <kit id="instakill">
         <max-health>1</max-health>
     </kit>
+    <kit id="kill">
+        <max-health>1</max-health>
+        <effect duration="5">instant_damage</effect>
+    </kit>
 </kits>
 <maxbuildheight>32</maxbuildheight>
 <spawns>
@@ -52,7 +56,7 @@
     <union id="spawns">
         <cuboid id="blue-spawn-room" min="7,32,15" max="13,36,22"/>
         <cuboid id="red-spawn-room" min="78,32,15" max="84,36,22"/>
-        <cuboid id="sky" min="16,30,oo" max="73,oo,oo"/>
+        <cuboid id="sky" min="18,30,-oo" max="73,oo,oo"/>
     </union>
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="9,25,17" max="12,25.5,20"/>
@@ -60,6 +64,9 @@
     </union>
     <union id="void">
         <cuboid id="void1" min="-oo,-oo,-oo" max="oo,13,oo"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid id="secondfloor2" min="28,33,-oo" max="61,oo,oo"/>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="You may not build here!"/>
@@ -73,6 +80,7 @@
     </apply>
     <apply block="deny(not(brick))"/>
     <apply region="void1" kit="instakill"/>
+    <apply region="secondfloor2" lend-kit="kill"/>
 </regions>
 <score>
     <limit>10</limit>
