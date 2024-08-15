@@ -1,7 +1,7 @@
 <map proto="1.4.2">
-<name>Towers Bridge - Bomb</name>
-<version>1.0.0</version>
-<created>2024-07-22</created>
+<name>Beach TowersBridge</name>
+<version>1.1.2</version>
+<created>2024-05-22</created>
 <objective>Score 10 points to win.</objective>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
@@ -14,7 +14,7 @@
 </teams>
 <kits>
     <kit id="spawn-kit">
-        <item slot="0" unbreakable="true" material="stone sword" />
+        <item slot="0" unbreakable="true" material="stone sword"/>
         <item slot="1" unbreakable="true" material="bow"/>
         <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
         <item slot="3" amount="64" material="brick"/>
@@ -22,21 +22,25 @@
         <item slot="8" amount="6" material="arrow"/>
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
-        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
+        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
         <boots team-color="true" unbreakable="true" material="chainmail boots"/>
         <clear/>
     </kit>
     <kit id="instakill">
         <max-health>1</max-health>
     </kit>
+    <kit id="kill">
+        <max-health>1</max-health>
+        <effect duration="5">instant_damage</effect>
+    </kit>
 </kits>
-<maxbuildheight>17</maxbuildheight>
+<maxbuildheight>32</maxbuildheight>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>0, 13, 0</point>
+            <point>45.5,27,18.5</point>
         </regions>
     </default>
 </spawns>
@@ -46,33 +50,37 @@
     <material id="brick">brick</material>
 </filters>
 <regions>
-    <point id="blue-spawn-point">-25.5,17,0.5</point>
-    <point id="red-spawn-point">25.5,17,0.5</point>
-    <point id="void2">0, -64, 0</point>
+    <point id="blue-spawn-point">10.5,32,18.5</point>
+    <point id="red-spawn-point">80.5,32,18.5</point>
+    <point id="void2">0,-64,0</point>
     <union id="spawns">
-        <cuboid id="blue-spawn" min="-27,13,-2" max="-24,17,2"/>
-        <cuboid id="red-spawn" min="23,13,-2" max="27,17,2"/>
-        <cuboid id="sky" min="-18,16,-oo" max="19,oo,oo"/>
+        <cuboid id="blue-spawn-room" min="7,32,15" max="13,36,22"/>
+        <cuboid id="red-spawn-room" min="78,32,15" max="84,36,22"/>
+        <cuboid id="sky" min="18,30,-oo" max="73,oo,oo"/>
     </union>
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="-27,11,-2" max="-23,11.5,2"/>
-        <cuboid id="red-scorebox" min="23,11,-2" max="27,11.5,2"/>
+        <cuboid id="blue-scorebox" min="9,25,17" max="12,25.5,20"/>
+        <cuboid id="red-scorebox" min="79,25,17" max="82,25.5,20"/>
     </union>
     <union id="void">
-        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,0,oo"/>
+        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,13,oo"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid id="secondfloor2" min="28,33,-oo" max="61,oo,oo"/>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="You may not build here!"/>
     <apply block="never" message="You may not build in the void!">
         <region>
-            <rectangle min="37,oo" max="oo,-oo"/>
-            <rectangle min="-37,oo" max="-oo,-oo"/>
-            <rectangle min="oo,20" max="-oo,oo"/>
-            <rectangle min="oo,-20" max="-oo,-oo"/>
+            <rectangle min="87,oo" max="oo,-oo"/>
+            <rectangle min="4,oo" max="-oo,-oo"/>
+            <rectangle min="oo,29" max="-oo,oo"/>
+            <rectangle min="oo,8" max="-oo,-oo"/>
         </region>
     </apply>
     <apply block="deny(not(brick))"/>
-    <apply region="void1" lend-kit="instakill"/>
+    <apply region="void1" kit="instakill"/>
+    <apply region="secondfloor2" lend-kit="kill"/>
 </regions>
 <score>
     <limit>10</limit>
@@ -83,7 +91,7 @@
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90"/>
-    <portal region="void1" destination="void2" sound="false"/>
+    <portal region="void1" destination="void2" smooth="true" sound="false"/>
 </portals>
 <toolrepair>
     <tool>stone sword</tool>
