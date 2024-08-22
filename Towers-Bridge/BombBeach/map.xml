@@ -1,13 +1,16 @@
 <map proto="1.4.2">
-<name>Bomb TowersBridge</name>
+<name>BombBeach TowersBridge</name>
 <version>1.1.0</version>
 <created>2024-07-22</created>
 <objective>Score 10 points to win.</objective>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
 <authors>
-    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
+    <author uuid="e5951644-77cd-40d0-85be-33594f0cae17"/> <!-- Alkaziaq -->
 </authors>
+<contributors>
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
+</contributors>
 <teams>
     <team id="blue-team" color="dark blue" max="5">Blue</team>
     <team id="red-team" color="dark red" max="5">Red</team>

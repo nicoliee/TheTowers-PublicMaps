@@ -6,8 +6,11 @@
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
 <authors>
-    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
+    <author uuid="90102fca-dd25-44e0-90c0-8739b8eb2b0f"/> <!-- Dashyz -->
 </authors>
+<contributors>
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
+</contributors>
 <teams>
     <team id="blue-team" color="dark blue" max="5">Blue</team>
     <team id="red-team" color="dark red" max="5">Red</team>
