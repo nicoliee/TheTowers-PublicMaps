@@ -1,9 +1,10 @@
 <map proto="1.4.2">
-<name>BombBeach TowersBridge</name>
+<name>BombBeach</name>
 <version>1.1.0</version>
 <created>2024-07-22</created>
 <objective>Score 10 points to win.</objective>
 <gamemode>scorebox</gamemode>
+<game>Towers Bridge</game>
 <phase>development</phase>
 <authors>
     <author uuid="e5951644-77cd-40d0-85be-33594f0cae17"/> <!-- Alkaziaq -->

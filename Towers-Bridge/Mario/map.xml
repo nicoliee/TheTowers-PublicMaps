@@ -1,8 +1,9 @@
 <map proto="1.4.2">
-<name>Mario TowersBridge</name>
+<name>Mario</name>
 <version>1.1.0</version>
 <created>2024-05-29</created>
 <objective>Score 10 points to win.</objective>
+<game>Towers Bridge</game>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
 <authors>
