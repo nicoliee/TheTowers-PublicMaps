@@ -85,9 +85,9 @@
 </score>
 <time overtime="2m" max-overtime="3m">10m</time>
 <portals pitch="@0">
-    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90"/>
-    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90"/>
-    <portal region="void1" destination="void2" sound="false"/>
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" observers="never"/>
+    <portal region="void1" destination="void2" sound="false" observers="never"/>
 </portals>
 <toolrepair>
     <tool>stone sword</tool>
