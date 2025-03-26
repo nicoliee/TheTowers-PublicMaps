@@ -1,11 +1,12 @@
 <map proto="1.4.2">
-<name>Mario</name>
+<name>Mario Bridge</name>
 <version>1.1.0</version>
 <created>2024-05-29</created>
 <objective>Score 10 points to win.</objective>
 <game>Towers Bridge</game>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
+<include id="gapple-kill-reward"/>
 <authors>
     <author uuid="6e33b007-ff1e-4b16-abe0-8ba98aedc570"/> <!-- Maxcence -->
     <author uuid="52ddf96c-5266-40a2-aed8-796e3d481b1e"/> <!-- Lykh -->
@@ -29,7 +30,7 @@
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
-        <boots team-color="true" unbreakable="true" material="chainmail boots"/>
+        <boots team-color="true" unbreakable="true" material="iron boots"/>
         <clear/>
     </kit>
     <kit id="instakill">
@@ -100,7 +101,7 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
-    <item>chainmail boots</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>
@@ -109,7 +110,6 @@
 </itemkeep>
 <kill-rewards>
     <kill-reward>
-	    <item amount="1" material="golden apple"/>
         <item amount="16" material="brick"/>
        	<item amount="3" material="arrow"/>
     </kill-reward>

@@ -1,11 +1,12 @@
 <map proto="1.4.2">
-<name>Sakai</name>
+<name>Sakai Bridge</name>
 <version>1.2.0</version>
 <created>2024-05-29</created>
 <objective>Score 10 points to win.</objective>
 <game>Towers Bridge</game>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
+<include id="gapple-kill-reward"/>
 <authors>
     <author uuid="90102fca-dd25-44e0-90c0-8739b8eb2b0f"/> <!-- Dashyz -->
 </authors>
@@ -27,7 +28,7 @@
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
-        <boots team-color="true" unbreakable="true" material="chainmail boots"/>
+        <boots team-color="true" unbreakable="true" material="iron boots"/>
         <clear/>
     </kit>
     <kit id="instakill">
@@ -98,7 +99,7 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
-    <item>chainmail boots</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>
@@ -107,7 +108,6 @@
 </itemkeep>
 <kill-rewards>
     <kill-reward>
-	    <item amount="1" material="golden apple"/>
         <item amount="16" material="brick"/>
        	<item amount="3" material="arrow"/>
     </kill-reward>

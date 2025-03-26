@@ -1,11 +1,12 @@
 <map proto="1.4.2">
-<name>Toplaya</name>
+<name>Toplaya Bridge</name>
 <version>1.1.2</version>
 <created>2024-05-22</created>
 <objective>Score 10 points to win.</objective>
 <gamemode>scorebox</gamemode>
 <game>Towers Bridge</game>
 <phase>development</phase>
+<include id="gapple-kill-reward"/>
 <authors>
     <author uuid="6e33b007-ff1e-4b16-abe0-8ba98aedc570"/> <!-- Maxcense -->
     <author uuid="be2a4bd6-a28f-4294-9c43-dbac3d248e8e"/> <!-- Namize -->
@@ -28,7 +29,7 @@
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
-        <boots team-color="true" unbreakable="true" material="chainmail boots"/>
+        <boots team-color="true" unbreakable="true" material="iron boots"/>
         <clear/>
     </kit>
     <kit id="instakill">
@@ -107,7 +108,7 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
-    <item>chainmail boots</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>
@@ -116,7 +117,6 @@
 </itemkeep>
 <kill-rewards>
     <kill-reward>
-	    <item amount="1" material="golden apple"/>
         <item amount="16" material="brick"/>
        	<item amount="3" material="arrow"/>
     </kill-reward>

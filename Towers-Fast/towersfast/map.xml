@@ -5,6 +5,7 @@
 <objective>Score 5 points to win.</objective>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
+<include id="gapple-kill-reward"/>
 <authors>
     <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
 </authors>
@@ -23,7 +24,7 @@
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
-        <boots team-color="true" unbreakable="true" material="chainmail boots"/>
+        <boots team-color="true" unbreakable="true" material="iron boots"/>
         <clear/>
     </kit>
     <kit id="instakill">
@@ -96,7 +97,7 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
-    <item>chainmail boots</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>
@@ -105,7 +106,6 @@
 </itemkeep>
 <kill-rewards>
     <kill-reward>
-	    <item amount="1" material="golden apple"/>
         <item amount="16" material="brick"/>
        	<item amount="4" material="arrow"/>
     </kill-reward>
