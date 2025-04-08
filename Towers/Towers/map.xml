@@ -9,7 +9,6 @@
 <include id="gapple-kill-reward"/>
 <authors>
     <author uuid="f48faa1f-aab2-44d5-94d2-8b0404f3a227" contribution="Builder"/> <!-- Quijx -->
-    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="Edits"/> <!-- nicolieeee -->
 </authors>
 <contributors>
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
@@ -38,10 +37,10 @@
         <item slot="5" amount="16" material="slime block"/>
         <item slot="6" amount="64" material="stained glass" team-color="true"/>
         <item slot="7" amount="64" material="wood"/>
-        <helmet team-color="true" unbreakable="true" locked="true" material="leather helmet"/>
-        <chestplate team-color="true" unbreakable="true" locked="true" material="leather chestplate"/>
-        <leggings team-color="true" unbreakable="true" locked="true" enchantment="protection projectile:3" material="chainmail leggings"/>
-        <boots team-color="true" unbreakable="true" locked="true" enchantment="feather falling:1" material="iron boots"/>
+        <helmet team-color="true" unbreakable="true" material="leather helmet"/>
+        <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
+        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
+        <boots team-color="true" unbreakable="true" enchantment="feather falling:1" material="iron boots"/>
         <effect duration="2" amplifier="255">regeneration</effect>
         <effect duration="2" amplifier="255">damage resistance</effect>
     </kit>
@@ -69,7 +68,7 @@
     <point id="void2">0, -64, 0</point>
     <union id="itemspawner">
         <cuboid id="iron-spawner" min="0,25,0" max="0,25.5,0"/>
-        <cuboid id="map" min="-10,0,-65" max="oo,oo,oo"/>
+        <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
     </union>
     <union id="blue-chests">
         <cuboid id="blue-chestroom-1" min="-54,11,3" max="-48,15,12"/>
@@ -122,17 +121,19 @@
     </union>
     <!-- applications -->
     <apply region="void1" lend-kit="instakill"/>
-    <apply region="spawns" block="never"/>
-    <apply block="never">
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa">
         <region>
-            <rectangle min="77,oo" max="oo,-oo"/>
-            <rectangle min="-77,oo" max="-oo,-oo"/>
-            <rectangle min="oo,18" max="-oo,oo"/>
-            <rectangle min="oo,-18" max="-oo,-oo"/>
+            <rectangle min="82,oo" max="oo,-oo"/>
+            <rectangle min="-81,oo" max="-oo,-oo"/>
+            <rectangle min="oo,23" max="-oo,oo"/>
+            <rectangle min="oo,-22" max="-oo,-oo"/>
         </region>
     </apply>
-    <apply region="red-chests" block="never" use="only-red"/>
-    <apply region="blue-chests" block="never" use="only-blue"/>
+    <apply region="red-chests" use="only-red" message="No puedes abrir cofres enemigos"/>
+    <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-chests" use="only-blue" message="No puedes abrir cofres enemigos"/>
+    <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
     <apply region="blue-scorebox" kit="heal" filter="only-red"/>
     <apply region="red-scorebox" kit="heal" filter="only-blue"/>
 </regions>
@@ -177,7 +178,7 @@
         </drops>
     </rule>
 </block-drops>
-<respawn delay="0s" auto="true"/>
+<respawn delay="0.5s" auto="true"/>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>stone pickaxe</tool>
@@ -214,20 +215,6 @@
 <hunger>
     <depletion>off</depletion>
 </hunger>
-<!-- Items Disabled -->
-<crafting>
-    <disable>iron block</disable>
-    <disable>iron fence</disable>
-    <disable>iron boots</disable>
-    <disable>iron leggings</disable>
-    <disable>iron chestplate</disable>
-    <disable>iron helmet</disable>
-    <disable>armor stand</disable>
-    <smelt>
-        <result amount="1" material="COBBLESTONE"/>
-        <ingredient>COBBLESTONE</ingredient>
-    </smelt>
-</crafting>
 <tnt>
     <instantignite>on</instantignite>
     <yield>0</yield>

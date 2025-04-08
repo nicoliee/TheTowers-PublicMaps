@@ -11,6 +11,11 @@
 <phase>staging</phase>
 <game>The Towers</game>
 <include id="gapple-kill-reward"/>
+<include id="void-death"/>
+<constants>
+    <constant id="void-plane">-20</constant>
+    <constant id="affect-obs">never</constant>
+</constants>
 <authors>
     <author uuid="55cf9732-293f-4956-ba38-b8c4c4bb04fa" contribution="Idea and first Draft"/> <!-- Joseile -->
     <author uuid="0a1424ce-0d7f-4f18-8470-f8f12c521f82" contribution="Builder"/> <!-- Katanya04 -->
@@ -68,10 +73,9 @@
 <regions>
     <point id="blue-spawn-point">14.5, 12, -49.5</point>
     <point id="red-spawn-point">14.5, 12, 54.5</point>
-    <point id="void2">0, -64, 0</point>
     <union id="itemspawner">
         <cuboid id="iron-spawner" min="14.5,25,2.5" max="14.5,25.5,2.5"/>
-        <cuboid id="map" min="-10,0,-65" max="oo,oo,oo"/>
+        <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
     </union>
     <union id="red-chests">
         <cuboid id="red-chestroom-1" min="18,11,38" max="23,15,43"/>
@@ -98,16 +102,12 @@
         <cuboid id="red-pathway-1" min="14,12,51" max="15,14,40"/>
         <cuboid id="red-pathway-2" min="11,12,40" max="18,14,41"/>
     </union>
-    <union id="void">
-        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,-10,oo"/>
-    </union>
     <!-- scoreboxes -->
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="12,20,-52" max="16,20.5,-48"/>
         <cuboid id="red-scorebox" min="12,20,52" max="16,20.5,56"/>
     </union>
     <!-- applications -->
-    <apply region="void1" lend-kit="instakill"/>
     <apply region="spawns" block="never"/>
     <apply block="never">
         <region>
@@ -136,7 +136,6 @@
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@180" sound="false" observers="never"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@0" sound="false" observers="never"/>
-    <portal region="void1" destination="void2" sound="false" observers="never"/>
 </portals>
 <block-drops>
     <rule wrong-tool="false">
@@ -163,7 +162,7 @@
         </drops>
     </rule>
 </block-drops>
-<respawn delay="0s" auto="true"/>
+<respawn delay="0.5s" auto="true"/>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>stone pickaxe</tool>
