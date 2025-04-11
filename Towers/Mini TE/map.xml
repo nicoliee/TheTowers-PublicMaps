@@ -104,12 +104,12 @@
     </union>
     <!-- scoreboxes -->
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="12,20,-52" max="16,20.5,-48"/>
-        <cuboid id="red-scorebox" min="12,20,52" max="16,20.5,56"/>
+        <cuboid id="blue-scorebox" min="13,20,-51" max="16,20.5,-48"/>
+        <cuboid id="red-scorebox" min="13,20,53" max="16,20.5,56"/>
     </union>
     <!-- applications -->
-    <apply region="spawns" block="never"/>
-    <apply block="never">
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa">
         <region>
             <rectangle min="35,oo" max="oo,-oo"/>
             <rectangle min="-6,oo" max="-oo,-oo"/>
@@ -117,8 +117,10 @@
             <rectangle min="oo,-58" max="-oo,-oo"/>
         </region>
     </apply>
-    <apply region="red-chests" block="never" use="only-red"/>
-    <apply region="blue-chests" block="never" use="only-blue"/>
+    <apply region="red-chests" use="only-red" message="No puedes abrir cofres enemigos"/>
+    <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-chests" use="only-blue" message="No puedes abrir cofres enemigos"/>
+    <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
     <apply region="blue-scorebox" kit="heal" filter="only-red"/>
     <apply region="red-scorebox" kit="heal" filter="only-blue"/>
 </regions>

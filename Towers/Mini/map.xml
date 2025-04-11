@@ -136,8 +136,8 @@
     </union>
     <!-- scoreboxes -->
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="12,20,-52" max="16,20.5,-48"/>
-        <cuboid id="red-scorebox" min="12,20,52" max="16,20.5,56"/>
+        <cuboid id="blue-scorebox" min="13,20,-51" max="16,20.5,-48"/>
+        <cuboid id="red-scorebox" min="13,20,53" max="16,20.5,56"/>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="No puedes modificar esta zona."/>

@@ -101,12 +101,12 @@
     <!-- Protections -->
     <union id="spawns">
         <!-- team blue -->
-        <cuboid id="blue-spawn-room" min="-70,10,-3" max="-69,22,4"/>
+        <cuboid id="blue-spawn-room" min="-76,10,-3" max="-69,22,4"/>
         <cuboid id="blue-scorebox-room" min="-74,20,2" max="-71,25,-1"/>
         <cuboid id="blue-pathway-1" min="-69,12,0" max="-51,14,1"/>
         <cuboid id="blue-pathway-2" min="-52,12,-3" max="-51,14,4"/>
         <!-- team red -->
-        <cuboid id="red-spawn-room" min="70,10,-3" max="78,22,4"/>
+        <cuboid id="red-spawn-room" min="70,10,-3" max="77,22,4"/>
         <cuboid id="red-scorebox-room" min="72,20,-1" max="75,25,2"/>
         <cuboid id="red-pathway-1" min="53,12,0" max="70,14,1"/>
         <cuboid id="red-pathway-2" min="52,12,-3" max="53,14,4"/>
@@ -149,8 +149,8 @@
     <box value="1" filter="only-blue" region="red-scorebox"/>
 </score>
 <portals pitch="@0">
-    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@180" sound="false" observers="never"/>
-    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@0" sound="false" observers="never"/>
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" sound="false" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" sound="false" observers="never"/>
     <portal region="void1" destination="void2" sound="false" observers="never"/>
 </portals>
 <block-drops>
