@@ -16,8 +16,8 @@
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
 </contributors>
 <teams>
-    <team id="red-team" color="dark red" max="8">Red</team>
-    <team id="blue-team" color="dark blue" max="8">Blue</team>
+    <team id="red-team" color="dark red" max="50">Red</team>
+    <team id="blue-team" color="dark blue" max="50">Blue</team>
 </teams>
 <filters>
     <team id="only-blue">blue-team</team>
@@ -220,6 +220,8 @@
     <item>WOOL:14</item>
     <item>String</item>
     <item>NETHER_FENCE</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep> <!-- see <clear/> in default kit -->
     <item>golden apple</item>

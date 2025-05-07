@@ -77,13 +77,13 @@
         <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
     </union>
     <union id="blue-chests">
-        <cuboid id="blue-chestroom-1" min="-54,11,3" max="-48,15,12"/>
-        <cuboid id="blue-chestroom-2" min="-54,11,-11" max="-48,15,-1"/>
+        <cuboid id="blue-chestroom-1" min="-54,11,4" max="-49,15,11"/>
+        <cuboid id="blue-chestroom-2" min="-54,11,-10" max="-49,15,-3"/>
         <cylinder id="blue-chest-1" base="-51.5,12,-13.5" radius="1.2" height="2"/>
     </union>
     <union id="red-chests">
-        <cuboid id="red-chestroom-1" min="50,11,3" max="55,15,12"/>
-        <cuboid id="red-chestroom-2" min="50,11,-11" max="55,15,-2"/>
+        <cuboid id="red-chestroom-1" min="50,11,4" max="55,15,11"/>
+        <cuboid id="red-chestroom-2" min="50,11,-10" max="55,15,-3"/>
         <cylinder id="red-chest-1" base="52.5,12,14.5" radius="1.2" height="2"/>
     </union>
     <!-- Protections -->
@@ -193,8 +193,10 @@
     <item>wood</item>
     <item>COAL_BLOCK</item>
     <item>TNT</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
 </itemkeep>
-<time overtime="1s">40m</time>
+<time overtime="1s">1h35m</time>
 <!-- Hunger Disabled -->
 <hunger>
     <depletion>off</depletion>

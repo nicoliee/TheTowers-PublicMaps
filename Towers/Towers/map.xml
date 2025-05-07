@@ -14,8 +14,8 @@
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
 </contributors>
 <teams>
-    <team id="red-team" color="dark red" max="8">Red</team>
-    <team id="blue-team" color="dark blue" max="8">Blue</team>
+    <team id="red-team" color="dark red" max="50">Red</team>
+    <team id="blue-team" color="dark blue" max="50">Blue</team>
 </teams>
 <filters>
     <team id="only-blue">blue-team</team>
@@ -71,8 +71,8 @@
         <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
     </union>
     <union id="blue-chests">
-        <cuboid id="blue-chestroom-1" min="-54,11,3" max="-48,15,12"/>
-        <cuboid id="blue-chestroom-2" min="-54,11,-11" max="-48,15,-1"/>
+        <cuboid id="blue-chestroom-1" min="-54,11,4" max="-49,15,11"/>
+        <cuboid id="blue-chestroom-2" min="-54,11,-10" max="-49,15,-3"/>
         <cylinder id="blue-chest-1" base="-51.5,12,14.5" radius="1.2" height="2"/>
         <cylinder id="blue-chest-2" base="-51.5,12,-13.5" radius="1.2" height="2"/>
         <cylinder id="blue-chest-3" base="-37.5,12,-13.5" radius="1.2" height="2"/>
@@ -85,8 +85,8 @@
         <cylinder id="blue-chest-10" base="-37.5,26,0.5" radius="1.2" height="2"/>
     </union>
     <union id="red-chests">
-        <cuboid id="red-chestroom-1" min="50,11,3" max="55,15,12"/>
-        <cuboid id="red-chestroom-2" min="50,11,-11" max="55,15,-2"/>
+        <cuboid id="red-chestroom-1" min="50,11,4" max="55,15,11"/>
+        <cuboid id="red-chestroom-2" min="50,11,-10" max="55,15,-3"/>
         <cylinder id="red-chest-1" base="52.5,12,-13.5" radius="1.2" height="2"/>
         <cylinder id="red-chest-2" base="52.5,12,14.5" radius="1.2" height="2"/>
         <cylinder id="red-chest-3" base="38.5,12,14.5" radius="1.2" height="2"/>

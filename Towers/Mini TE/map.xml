@@ -196,6 +196,8 @@
     <item>wood</item>
     <item>COAL_BLOCK</item>
     <item>TNT</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
 </itemkeep>
 <time overtime="1s">40m</time>
 <!-- Hunger Disabled -->
