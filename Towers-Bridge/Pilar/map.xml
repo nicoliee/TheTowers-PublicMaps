@@ -1,0 +1,145 @@
+<map proto="1.4.2">
+<name>Pilar Bridge</name>
+<version>1.1.0</version>
+<created>2024-07-22</created>
+<objective>Score 10 points to win.</objective>
+<gamemode>scorebox</gamemode>
+<game>Towers Bridge</game>
+<phase>development</phase>
+<include id="gapple-kill-reward"/>
+<authors>
+    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
+</authors>
+<contributors>
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML "/> <!-- nicolieeee -->
+</contributors>
+<teams>
+    <team id="blue-team" color="dark blue" max="2">Blue</team>
+    <team id="red-team" color="dark red" max="2">Red</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <item slot="0" unbreakable="true" material="stone sword" />
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
+        <item slot="3" amount="64" material="brick"/>
+        <item slot="4" amount="1" material="golden apple"/>
+        <item slot="8" amount="6" material="arrow"/>
+        <helmet team-color="true" unbreakable="true" material="leather helmet"/>
+        <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
+        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
+        <boots team-color="true" unbreakable="true" material="iron boots"/>
+        <clear/>
+    </kit>
+    <kit id="instakill">
+        <max-health>1</max-health>
+    </kit>
+    <kit id="kill">
+        <max-health>1</max-health>
+        <effect duration="5">instant_damage</effect>
+    </kit>
+</kits>
+<maxbuildheight>17</maxbuildheight>
+<spawns>
+    <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
+    <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
+    <default yaw="180">
+        <regions>
+            <point>0, 18, 0</point>
+        </regions>
+    </default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+    <material id="brick">brick</material>
+</filters>
+<regions>
+    <point id="blue-spawn-point">-35.5,17,0.5</point>
+    <point id="red-spawn-point">35.5,17,0.5</point>
+    <point id="void2">0, -64, 0</point>
+    <union id="spawns">
+        <cuboid id="blue-spawn-room" min="-32,17,3" max="-36,25,-2"/>
+        <cuboid id="red-spawn-room" min="32,16,-3" max="39,25,3"/>
+        <cuboid id="sky" min="-28,15,-oo" max="28,oo,oo"/>
+    </union>
+    <union id="scoreboxes">
+        <cuboid id="blue-scorebox" min="-33,10,-2" max="-37,10.5,2"/>
+        <cuboid id="red-scorebox" min="33,10,-2" max="37,10.5,2"/>
+    </union>
+    <union id="void">
+        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,0,oo"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid id="secondfloor2" min="-10,19,-oo" max="10,oo,oo"/>
+    </union>
+    <!-- applications -->
+    <apply region="spawns" block="never" message="You may not build here!"/>
+    <apply block="never" message="You may not build in the void!">
+        <region>
+            <rectangle min="45,oo" max="oo,-oo"/>
+            <rectangle min="-45,oo" max="-oo,-oo"/>
+            <rectangle min="oo,25" max="-oo,oo"/>
+            <rectangle min="oo,-25" max="-oo,-oo"/>
+        </region>
+    </apply>
+    <apply block="deny(not(brick))"/>
+    <apply region="void1" lend-kit="instakill"/>
+    <apply region="secondfloor2" lend-kit="kill"/>
+</regions>
+<score>
+    <limit>10</limit>
+    <box value="1" filter="only-red" region="blue-scorebox"/>
+    <box value="1" filter="only-blue" region="red-scorebox"/>
+</score>
+<time overtime="2m" max-overtime="3m">10m</time>
+<portals pitch="@0">
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" observers="never"/>
+    <portal region="void1" destination="void2" sound="false" observers="never"/>
+</portals>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>brick</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-rewards>
+    <kill-reward>
+        <item amount="16" material="brick"/>
+       	<item amount="3" material="arrow"/>
+    </kill-reward>
+</kill-rewards>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<renewables>
+    <renewable region = "everywhere" interval="10s" particles="false" avoid-players="0">
+        <renew-filter>
+            <any>
+                <material>air</material>
+            </any>
+        </renew-filter>
+        <replace-filter>
+            <any>
+                <material>brick</material>
+            </any>
+        </replace-filter>
+    </renewable>
+</renewables>
+<respawn delay="2s" auto="true" blackout="true"/>
+<disabledamage>
+    <!-- Disable fall damage -->
+    <damage>fall</damage>
+</disabledamage>
+</map>
