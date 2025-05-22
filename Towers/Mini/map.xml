@@ -7,10 +7,14 @@
 <phase>staging</phase>
 <game>The Towers</game>
 <include id="gapple-kill-reward"/>
+<include id="void-death"/>
+<constants>
+    <constant id="void-plane">-20</constant>
+    <constant id="affect-obs">never</constant>
+</constants>
 <authors>
     <author uuid="55cf9732-293f-4956-ba38-b8c4c4bb04fa" contribution="Idea and first Draft"/> <!-- Joseile -->
     <author uuid="0a1424ce-0d7f-4f18-8470-f8f12c521f82" contribution="Builder"/> <!-- Katanya04 -->
-    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="Edits"/> <!-- nicolieeee -->
 </authors>
 <contributors>
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
