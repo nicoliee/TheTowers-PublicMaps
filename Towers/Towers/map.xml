@@ -196,6 +196,8 @@
     <item>String</item>
     <item>NETHER_FENCE</item>
     <item>feather</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>

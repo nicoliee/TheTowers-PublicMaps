@@ -25,7 +25,7 @@
         <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
         <item slot="3" amount="64" material="brick"/>
         <item slot="4" amount="1" material="golden apple"/>
-        <item slot="8" amount="6" material="arrow"/>
+        <item slot="8" amount="5" material="arrow"/>
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
@@ -60,8 +60,8 @@
     <point id="red-spawn-point">80.5,32,18.5</point>
     <point id="void2">0,-64,0</point>
     <union id="spawns">
-        <cuboid id="blue-spawn-room" min="7,32,15" max="13,36,22"/>
-        <cuboid id="red-spawn-room" min="78,32,15" max="84,36,22"/>
+        <cuboid id="blue-scoreroom" min="8,25,16" max="13,31,21"/>
+        <cuboid id="red-scoreroom" min="78,25,16" max="83,31,21"/>
         <cuboid id="sky" min="18,30,-oo" max="73,oo,oo"/>
     </union>
     <union id="scoreboxes">
@@ -75,8 +75,8 @@
         <cuboid id="secondfloor2" min="28,33,-oo" max="61,oo,oo"/>
     </union>
     <!-- applications -->
-    <apply region="spawns" block="never" message="You may not build here!"/>
-    <apply block="never" message="You may not build in the void!">
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa.">
         <region>
             <rectangle min="87,oo" max="oo,-oo"/>
             <rectangle min="4,oo" max="-oo,-oo"/>

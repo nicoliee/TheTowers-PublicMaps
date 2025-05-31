@@ -109,7 +109,7 @@
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa">
+    <apply block="never" message="No puedes salir del mapa.">
         <region>
             <rectangle min="35,oo" max="oo,-oo"/>
             <rectangle min="-6,oo" max="-oo,-oo"/>
@@ -182,6 +182,8 @@
     <item>String</item>
     <item>NETHER_FENCE</item>
     <item>feather</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
 </itemremove>
 <itemkeep>
     <item>golden apple</item>
@@ -196,8 +198,6 @@
     <item>wood</item>
     <item>COAL_BLOCK</item>
     <item>TNT</item>
-    <item>chainmail leggings</item>
-    <item>iron boots</item>
 </itemkeep>
 <time overtime="1s">40m</time>
 <!-- Hunger Disabled -->
