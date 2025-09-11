@@ -17,7 +17,8 @@
     <constant id="affect-obs">never</constant>
 </constants>
 <authors>
-    <author uuid="55cf9732-293f-4956-ba38-b8c4c4bb04fa" contribution="Idea and first Draft"/> <!-- Joseile -->
+    <author uuid="f48faa1f-aab2-44d5-94d2-8b0404f3a227" contribution="Builder"/> <!-- Quijx -->
+    <author uuid="4ebe234d-5d47-445a-848c-00b39711c572" contribution="Idea and first Draft"/> <!-- Joseile -->
     <author uuid="0a1424ce-0d7f-4f18-8470-f8f12c521f82" contribution="Builder"/> <!-- Katanya04 -->
     <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="Edits"/> <!-- nicolieeee -->
 </authors>
@@ -31,6 +32,15 @@
 <filters>
     <team id="only-blue">blue-team</team>
     <team id="only-red">red-team</team>
+    <all id="red-scored">
+        <team>red-team</team>
+        <region id="blue-scorebox"/>
+    </all>
+    <all id="blue-scored">
+        <team>blue-team</team>
+        <region id="red-scorebox"/>
+        <participating/>
+    </all>
 </filters>
 <kits>
     <kit id="spawn-kit">
@@ -57,10 +67,28 @@
     </kit>
     <kit id="heal">
         <max-health>20</max-health>
+        <health>20</health>
         <effect duration="2" amplifier="255">regeneration</effect>
+        <effect duration="1" amplifier="255">damage resistance</effect>
+        <action>
+            <set var="player_score" value="player_score+1"/>
+        </action>
+        <action>
+            <message actionbar="`7Puntos: `a{amount}">
+                <replacements>
+                    <decimal id="amount" value="player_score"/>
+                </replacements>
+            </message>
+        </action>
     </kit>
 </kits>
 <maxbuildheight>38</maxbuildheight>
+<variables>
+    <variable id="player_score" scope="player" default="0"/>
+</variables>
+<stats>
+    <stat name="Puntos" value="player_score"/>
+</stats>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="0"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="180"/>
@@ -213,6 +241,8 @@
     <disable>iron chestplate</disable>
     <disable>iron helmet</disable>
     <disable>armor stand</disable>
+    <disable>hopper</disable>
+    <disable>furnace</disable>
     <smelt>
         <result amount="1" material="COBBLESTONE"/>
         <ingredient>COBBLESTONE</ingredient>

@@ -13,7 +13,7 @@
     <constant id="affect-obs">never</constant>
 </constants>
 <authors>
-    <author uuid="55cf9732-293f-4956-ba38-b8c4c4bb04fa" contribution="Idea and first Draft"/> <!-- Joseile -->
+    <author uuid="4ebe234d-5d47-445a-848c-00b39711c572" contribution="Idea and first Draft"/> <!-- Joseile -->
     <author uuid="0a1424ce-0d7f-4f18-8470-f8f12c521f82" contribution="Builder"/> <!-- Katanya04 -->
 </authors>
 <contributors>
@@ -46,6 +46,15 @@
             <team id="only-blue-chest">blue-team</team>
         </all>
     </not>
+    <all id="red-scored">
+        <team>red-team</team>
+        <region id="blue-scorebox"/>
+    </all>
+    <all id="blue-scored">
+        <team>blue-team</team>
+        <region id="red-scorebox"/>
+        <participating/>
+    </all>
 </filters>
 <kits>
     <kit id="spawn-kit">
@@ -65,7 +74,7 @@
         <leggings team-color="true" unbreakable="true" locked="true" enchantment="protection projectile:3" material="chainmail leggings"/>
         <boots team-color="true" unbreakable="true" locked="true" enchantment="feather falling:1" material="iron boots"/>
         <effect duration="2" amplifier="255">regeneration</effect>
-        <effect duration="2" amplifier="255">damage resistance</effect>
+        <effect duration="1" amplifier="255">damage resistance</effect>
     </kit>
     <kit id="instakill">
         <max-health>1</max-health>
@@ -74,9 +83,26 @@
         <max-health>20</max-health>
         <health>20</health>
         <effect duration="2" amplifier="255">regeneration</effect>
+        <effect duration="1" amplifier="255">resistance</effect>
+        <action>
+            <set var="player_score" value="player_score+1"/>
+        </action>
+        <action>
+            <message actionbar="`7Puntos: `a{amount}">
+                <replacements>
+                    <decimal id="amount" value="player_score"/>
+                </replacements>
+            </message>
+        </action>
     </kit>
 </kits>
 <maxbuildheight>38</maxbuildheight>
+<variables>
+    <variable id="player_score" scope="player" default="0"/>
+</variables>
+<stats>
+    <stat name="Puntos" value="player_score"/>
+</stats>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="0" />
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="180"/>

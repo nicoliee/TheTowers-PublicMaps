@@ -7,6 +7,11 @@
 <phase>staging</phase>
 <game>The Towers</game>
 <include id="gapple-kill-reward"/>
+<include id="void-death"/>
+<constants>
+    <constant id="void-plane">-20</constant>
+    <constant id="affect-obs">never</constant>
+</constants>
 <authors>
     <author uuid="f48faa1f-aab2-44d5-94d2-8b0404f3a227" contribution="Builder"/> <!-- Quijx -->
 </authors>
@@ -23,6 +28,15 @@
     <deny id="deny-chest">
         <material>chest</material>
     </deny>
+    <all id="red-scored">
+        <team>red-team</team>
+        <region id="blue-scorebox"/>
+    </all>
+    <all id="blue-scored">
+        <team>blue-team</team>
+        <region id="red-scorebox"/>
+        <participating/>
+    </all>
 </filters>
 <kits>
     <kit id="spawn-kit">
@@ -49,10 +63,28 @@
     </kit>
     <kit id="heal">
         <max-health>20</max-health>
+        <health>20</health>
         <effect duration="2" amplifier="255">regeneration</effect>
+        <effect duration="1" amplifier="255">damage resistance</effect>
+        <action>
+            <set var="player_score" value="player_score+1"/>
+        </action>
+        <action>
+            <message actionbar="`7Puntos: `a{amount}">
+                <replacements>
+                    <decimal id="amount" value="player_score"/>
+                </replacements>
+            </message>
+        </action>
     </kit>
 </kits>
 <maxbuildheight>38</maxbuildheight>
+<variables>
+    <variable id="player_score" scope="player" default="0"/>
+</variables>
+<stats>
+    <stat name="Puntos" value="player_score"/>
+</stats>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>

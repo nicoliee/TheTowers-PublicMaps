@@ -19,16 +19,19 @@
 </teams>
 <kits>
     <kit id="spawn-kit">
-        <item slot="0" unbreakable="true" material="stone sword" />
+        <max-health>20</max-health>
+        <item slot="0" unbreakable="true" material="stone sword"/>
         <item slot="1" unbreakable="true" material="bow"/>
-        <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
-        <item slot="3" amount="64" material="brick"/>
-        <item slot="4" amount="1" material="golden apple"/>
-        <item slot="8" amount="5" material="arrow"/>
+        <item slot="2" amount="1" material="golden apple"/>
+        <item slot="3" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
+        <item slot="4" amount="48" material="brick"/>
+        <item slot="8" amount="6" material="arrow"/>
         <helmet team-color="true" unbreakable="true" material="leather helmet"/>
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
-        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:3" material="chainmail leggings"/>
+        <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
         <boots team-color="true" unbreakable="true" material="iron boots"/>
+        <effect duration="1s" amplifier="5">resistance</effect>
+        <effect duration="1s" amplifier="5">regeneration</effect>
         <clear/>
     </kit>
     <kit id="instakill">
@@ -38,8 +41,91 @@
         <max-health>1</max-health>
         <effect duration="5">instant_damage</effect>
     </kit>
+    <kit id="goal-kit">
+        <action>
+            <set var="player_score" value="player_score+1"/>
+        </action>
+        <action>
+            <message actionbar="`7Puntos: `a{amount}">
+                <replacements>
+                    <decimal id="amount" value="player_score"/>
+                </replacements>
+            </message>
+        </action>
+    </kit>
 </kits>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+    <material id="brick">brick</material>
+    <players id="at-least-8" min="8" participants="true">
+        <participating/>
+    </players>
+    <all id="red-scored">
+        <team>red-team</team>
+        <region id="blue-scorebox"/>
+    </all>
+    <all id="blue-scored">
+        <team>blue-team</team>
+        <region id="red-scorebox"/>
+        <participating/>
+    </all>
+</filters>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>brick</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-rewards>
+    <kill-reward>
+        <item amount="8" material="brick"/>
+       	<item amount="3" material="arrow"/>
+    </kill-reward>
+</kill-rewards>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<renewables>
+    <renewable region = "everywhere" interval="10s" particles="false" avoid-players="0">
+        <renew-filter>
+            <any>
+                <material>air</material>
+            </any>
+        </renew-filter>
+        <replace-filter>
+            <any>
+                <material>brick</material>
+            </any>
+        </replace-filter>
+    </renewable>
+</renewables>
+<respawns>
+  <respawn delay="3s" filter="at-least-8" auto="true" blackout="true"/>
+</respawns>
+<respawn delay="2s" auto="true" blackout="true"/>
+<disabledamage>
+    <!-- Disable fall damage -->
+    <damage>fall</damage>
+</disabledamage>
+<modifybowprojectile pickup-filter="never"/>
 <maxbuildheight>17</maxbuildheight>
+<variables>
+    <variable id="player_score" scope="player" default="0"/>
+</variables>
+<stats>
+    <stat name="Puntos" value="player_score"/>
+</stats>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
@@ -49,11 +135,6 @@
         </regions>
     </default>
 </spawns>
-<filters>
-    <team id="only-blue">blue-team</team>
-    <team id="only-red">red-team</team>
-    <material id="brick">brick</material>
-</filters>
 <regions>
     <point id="blue-spawn-point">-35.5,17,0.5</point>
     <point id="red-spawn-point">35.5,17,0.5</point>
@@ -86,6 +167,8 @@
     <apply block="deny(not(brick))"/>
     <apply region="void1" lend-kit="instakill"/>
     <apply region="secondfloor2" lend-kit="kill"/>
+    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
+    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
 </regions>
 <score>
     <limit>10</limit>
@@ -98,48 +181,4 @@
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" observers="never"/>
     <portal region="void1" destination="void2" sound="false" observers="never"/>
 </portals>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>iron pickaxe</tool>
-    <tool>bow</tool>
-</toolrepair>
-<itemremove>
-    <item>leather helmet</item>
-    <item>leather chestplate</item>
-    <item>chainmail leggings</item>
-    <item>iron boots</item>
-</itemremove>
-<itemkeep>
-    <item>golden apple</item>
-    <item>brick</item>
-    <item>arrow</item>
-</itemkeep>
-<kill-rewards>
-    <kill-reward>
-        <item amount="16" material="brick"/>
-       	<item amount="3" material="arrow"/>
-    </kill-reward>
-</kill-rewards>
-<hunger>
-    <depletion>off</depletion>
-</hunger>
-<renewables>
-    <renewable region = "everywhere" interval="10s" particles="false" avoid-players="0">
-        <renew-filter>
-            <any>
-                <material>air</material>
-            </any>
-        </renew-filter>
-        <replace-filter>
-            <any>
-                <material>brick</material>
-            </any>
-        </replace-filter>
-    </renewable>
-</renewables>
-<respawn delay="2s" auto="true" blackout="true"/>
-<disabledamage>
-    <!-- Disable fall damage -->
-    <damage>fall</damage>
-</disabledamage>
 </map>

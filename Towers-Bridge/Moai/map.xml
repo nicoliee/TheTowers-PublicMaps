@@ -1,17 +1,18 @@
 <map proto="1.4.2">
-<name>Sakai Bridge</name>
-<version>1.2.0</version>
-<created>2024-05-29</created>
+<name>Moai Bridge</name>
+<version>1.1.0</version>
+<created>2025-06-15</created>
 <objective>Score 10 points to win.</objective>
 <game>Towers Bridge</game>
 <gamemode>scorebox</gamemode>
 <phase>development</phase>
 <include id="gapple-kill-reward"/>
 <authors>
-    <author uuid="90102fca-dd25-44e0-90c0-8739b8eb2b0f"/> <!-- Dashyz -->
+    <author uuid="6e33b007-ff1e-4b16-abe0-8ba98aedc570"/> <!-- ImV12 -->
+    <author uuid="59c0c853-dd33-44d8-b124-dd4c10a660e6"/> <!-- Ministre -->
 </authors>
 <contributors>
-    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML and adapt to Bridge format"/> <!-- nicolieeee -->
 </contributors>
 <teams>
     <team id="blue-team" color="dark blue" max="2">Blue</team>
@@ -115,46 +116,53 @@
     <damage>fall</damage>
 </disabledamage>
 <modifybowprojectile pickup-filter="never"/>
-<maxbuildheight>29</maxbuildheight>
+<maxbuildheight>32</maxbuildheight>
 <variables>
     <variable id="player_score" scope="player" default="0"/>
 </variables>
 <stats>
     <stat name="Puntos" value="player_score"/>
 </stats>
+<broadcasts>
+    <alert after="2s">No puedes construir en el parkour.</alert>
+</broadcasts>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>45, 24, 25</point>
+            <point>0.5,27,0.5</point>
         </regions>
     </default>
 </spawns>
 <regions>
-    <point id="blue-spawn-point">10.5,29,25.5</point>
-    <point id="red-spawn-point">80.5,29,25.5</point>
+    <point id="blue-spawn-point">-34.5,32,0.5</point>
+    <point id="red-spawn-point">35.5,32,0.5</point>
     <point id="void2">0, -64, 0</point>
     <union id="spawns">
-        <cuboid id="blue-scoreroom" min="8,22,23" max="13.5,28,27.5"/>
-        <cuboid id="red-scoreroom" min="78.5,22,23" max="82.5,28,27.5"/>
-        <cuboid id="sky" min="17,27,-oo" max="73,oo,oo"/>
+        <cuboid id="blue-scoreroom" min="-37,25,-2" max="-32,31,3"/>
+        <cuboid id="red-scoreroom" min="33,25,-2" max="38,31,3"/>
+        <cuboid id="sky" min="-27,30,-oo" max="28,oo,oo"/>
+        <cuboid id="parkour1" min="3,21,3" max="10,30,10"/>
+        <cuboid id="parkour2" min="-9,21,3" max="-2,30,10"/>
+        <cuboid id="parkour3" min="3,21,-9" max="10,30,-2"/>
+        <cuboid id="parkour4" min="-9,21,-9" max="-2,30,-2"/>
     </union>
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="9,22,24" max="12,22.5,27"/>
-        <cuboid id="red-scorebox" min="79,22,24" max="82,22.5,27"/>
+        <cuboid id="blue-scorebox" min="-33,25,-1" max="-36,25.5,2"/>
+        <cuboid id="red-scorebox" min="34,25,-1" max="37,25.5,2"/>
     </union>
     <union id="void">
-        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,10,oo"/>
+        <cuboid id="void1" min="-oo,-oo,-oo" max="oo,15,oo"/>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
     <apply block="never" message="No puedes salir del mapa.">
         <region>
-            <rectangle min="88,oo" max="oo,-oo"/>
-            <rectangle min="3,oo" max="-oo,-oo"/>
-            <rectangle min="oo,47" max="-oo,oo"/>
-            <rectangle min="oo,3" max="-oo,-oo"/>
+            <rectangle min="44,oo" max="oo,-oo"/>
+            <rectangle min="-43,oo" max="-oo,-oo"/>
+            <rectangle min="oo,18" max="-oo,oo"/>
+            <rectangle min="oo,-17" max="-oo,-oo"/>
         </region>
     </apply>
     <apply block="deny(not(brick))"/>
