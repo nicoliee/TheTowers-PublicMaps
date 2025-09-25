@@ -238,6 +238,8 @@
     <disable>armor stand</disable>
     <disable>hopper</disable>
     <disable>furnace</disable>
+    <disable>slime_ball</disable>
+    <disable>nether_fence</disable>
     <smelt>
         <result amount="1" material="COBBLESTONE"/>
         <ingredient>COBBLESTONE</ingredient>
