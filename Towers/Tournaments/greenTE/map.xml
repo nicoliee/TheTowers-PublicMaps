@@ -1,0 +1,94 @@
+<map proto="1.4.2">
+<name>Green Towers:TE</name>
+<version>1.0.0</version>
+<created>2025-09-25</created>
+<phase>staging</phase>
+
+<include id="towers"/>
+<constants>
+    <constant id="void-plane">-20</constant>
+    <constant id="affect-obs">never</constant>
+</constants>
+<authors>
+    <author uuid="795d527c-1330-4e3e-94ec-719b63b6a8c6" contribution="Builder"/> <!-- iGreenBrothres_ -->
+    <author uuid="64b292be-faf3-4964-b826-2d0051a245cb" contribution="Builder"/> <!-- sAutismm -->
+</authors>
+<contributors>
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
+</contributors>
+<maxbuildheight>38</maxbuildheight>
+<spawns>
+    <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
+    <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
+    <default yaw="180">
+        <regions>
+            <point>0,17,0.5</point>
+        </regions>
+    </default>
+</spawns>
+<regions>
+    <point id="blue-spawn-point">-50.5, 12, 0.5</point>
+    <point id="red-spawn-point">51.5, 12, 0.5</point>
+    <union id="itemspawner">
+        <cuboid id="iron-spawner" min="0.5,24,0.5" max="0.5,24.5,0.5"/>
+        <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
+    </union>
+    <union id="red-chests">
+        <cuboid id="red-chestroom-1" min="36,11,-11" max="41,15,-2"/>
+        <cuboid id="red-chestroom-2" min="36,11,3" max="41,15,12"/>
+        <cylinder id="red-chest-1" base="38.5,12,14.5" radius="1.2" height="2"/>
+    </union>
+    <union id="blue-chests">
+        <cuboid id="blue-chestroom-1" min="-40,11,-11" max="-35,15,-2"/>
+        <cuboid id="blue-chestroom-2" min="-40,11,3" max="-35,15,12"/>
+        <cylinder id="blue-chest-1" base="-37.5,12,-13.5" radius="1.2" height="2"/>
+    </union>
+    <!-- por si se quiere usar el tiempo de preparación desde PGM y no desde un plugin -->
+    <rectangle id="preparation" min="-9,-16" max="37,20"/>
+    <!-- Protections -->
+    <union id="spawns">
+        <!-- team blue -->
+        <cuboid id="blue-spawn-room" min="-54,10,-3" max="-47,22,4"/>
+        <cuboid id="blue-scorebox-room" min="-52,20,-1" max="-49,25,2"/>
+        <cuboid id="blue-pathway-1" min="-37,12,0" max="-47,14,1"/>
+        <cuboid id="blue-pathway-2" min="-38,12,-2" max="-37,14,3"/>
+        <!-- team red -->
+        <cuboid id="red-spawn-room" min="48,10,-3" max="55,22,4"/>
+        <cuboid id="red-scorebox-room" min="50,20,-1" max="53,25,2"/>
+        <cuboid id="red-pathway-1" min="38,12,0" max="48,14,1"/>
+        <cuboid id="red-pathway-2" min="38,12,-2" max="39,14,3"/>
+    </union>
+    <!-- scoreboxes -->
+    <union id="scoreboxes">
+        <cuboid id="blue-scorebox" min="-52,20,-1" max="-49,20.5,2"/>
+        <cuboid id="red-scorebox" min="50,20,-1" max="53,20.5,2"/>
+    </union>
+    <!-- applications -->
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa.">
+        <region>
+            <rectangle min="60,oo" max="oo,-oo"/>
+            <rectangle min="-59,oo" max="-oo,-oo"/>
+            <rectangle min="oo,23" max="-oo,oo"/>
+            <rectangle min="oo,-22" max="-oo,-oo"/>
+            <above y="38"/>
+        </region>
+    </apply>
+    <apply region="red-chests" use="only-red" message="No puedes abrir cofres enemigos"/>
+    <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-chests" use="only-blue" message="No puedes abrir cofres enemigos"/>
+    <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-scorebox" kit="heal" filter="only-red"/>
+    <apply region="red-scorebox" kit="heal" filter="only-blue"/>
+</regions>
+<!-- Spawners en Mid -->
+<spawners>
+    <spawner spawn-region="iron-spawner" player-region="map" max-entities="50" min-delay="6s" max-delay="7s">
+        <item amount="1" material="iron ingot"/>
+    </spawner>
+</spawners>
+<portals pitch="@0">
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" sound="false" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" sound="false" observers="never"/>
+</portals>
+</map>
