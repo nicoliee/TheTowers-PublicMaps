@@ -27,6 +27,12 @@
         </regions>
     </default>
 </spawns>
+<filters>
+    <any id="blocks">
+        <material>VINE</material>
+        <material>BRICK</material>
+    </any>   
+</filters>
 <regions>
     <point id="blue-spawn-point">-35.5,17,0.5</point>
     <point id="red-spawn-point">35.5,17,0.5</point>
@@ -52,7 +58,7 @@
             <rectangle min="oo,-25" max="-oo,-oo"/>
         </region>
     </apply>
-    <apply block="deny(not(brick))"/>
+    <apply block="deny(not(blocks))"/>
     <apply region="secondfloor2" lend-kit="kill"/>
     <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
     <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
