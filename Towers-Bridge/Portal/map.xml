@@ -11,15 +11,19 @@
 <authors>
     <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
 </authors>
-<contributors>
-    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML "/> <!-- nicolieeee -->
-</contributors>
+<broadcasts>
+    <alert after="2s">`8[`6Bigotes Bot`8] `FEl centro se abre en 5 minutos.</alert>
+    <alert after="4m">`8[`6Bigotes Bot`8] `FEl centro se abre en 1 minuto.</alert>
+    <alert after="4m57s">`8[`6Bigotes Bot`8] `FEl centro se abre en 3 segundos.</alert>
+    <alert after="4m58s">`8[`6Bigotes Bot`8] `FEl centro se abre en 2 segundos.</alert>
+    <alert after="4m59s">`8[`6Bigotes Bot`8] `FEl centro se abre en 1 segundo.</alert>
+</broadcasts>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>0, 18, 0</point>
+            <point>0.5, 12, 0.5</point>
         </regions>
     </default>
 </spawns>
@@ -41,9 +45,28 @@
     <union id="map-boundaries">
         <negative><rectangle min="-45,-25" max="45,25"/></negative>
     </union>
+    <union id="mid-portal-roof">
+        <cuboid min="-1, 11, -1" max="2, 12, 2"/>
+    </union>
+    <cuboid id="mid-portal" min="-1, 10, -1" max="2, 10.5, 2"/>
+    <apply region="mid-portal" block="never" message="No puedes modificar esta zona."/>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" observers="never"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" observers="never"/>
+    <portal y="@-110" region="mid-portal" sound="false" observers="never"/>
 </portals>
+<filters>
+    <time id="5minutes">5m</time>
+    <time id="countdown">4m55s</time>
+</filters>
+<actions>
+    <trigger filter="5minutes" scope="match">
+        <action>
+            <fill material="air" region="mid-portal-roof"/>
+            <message text="`8[`6Bigotes Bot`8] `7¡`FEl portal del centro está abierto, ten cuidado`7!"/>
+            <sound preset="OBJECTIVE_MODE"/>
+        </action>
+    </trigger>
+</actions>
 </map>

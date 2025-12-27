@@ -11,9 +11,6 @@
 <authors>
     <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
 </authors>
-<contributors>
-    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML "/> <!-- nicolieeee -->
-</contributors>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
