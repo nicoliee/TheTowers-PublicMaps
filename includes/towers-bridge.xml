@@ -94,7 +94,7 @@
     <depletion>off</depletion>
 </hunger>
 <renewables>
-    <renewable region ="everywhere" interval="5s" particles="false" avoid-players="1">
+    <renewable region ="everywhere" interval="8s" particles="false" avoid-players="2">
         <renew-filter>
             <any>
                 <material>air</material>
