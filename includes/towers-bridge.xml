@@ -131,8 +131,8 @@
     </rule>
 </block-drops>
 <portals>
-        <portal filter="only-red" region="red-scorebox" y="@-110" sound="false"/>
-        <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false"/>
+        <portal filter="only-red" region="red-scorebox" y="@-110" sound="false" observers="never"/>
+        <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false" observers="never"/>
 </portals>
 <regions>
     <apply region="red-scorebox" kit="void-death" filter="only-red"/>
