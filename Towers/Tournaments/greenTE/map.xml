@@ -63,30 +63,11 @@
         <cuboid id="blue-scorebox" min="-52,20,-1" max="-49,20.5,2"/>
         <cuboid id="red-scorebox" min="50,20,-1" max="53,20.5,2"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="60,oo" max="oo,-oo"/>
-            <rectangle min="-59,oo" max="-oo,-oo"/>
-            <rectangle min="oo,23" max="-oo,oo"/>
-            <rectangle min="oo,-22" max="-oo,-oo"/>
-            <above y="38"/>
-        </region>
-    </apply>
-    <apply region="red-chests" use="only-red" message="No puedes abrir cofres enemigos"/>
-    <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
-    <apply region="blue-chests" use="only-blue" message="No puedes abrir cofres enemigos"/>
-    <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
-    <apply region="blue-scorebox" kit="heal" filter="only-red"/>
-    <apply region="red-scorebox" kit="heal" filter="only-blue"/>
+    <!-- map boundaries -->
+    <union id="map-boundaries">
+        <negative><rectangle min="-59,-22" max="60,23"/></negative>
+    </union>
 </regions>
-<!-- Spawners en Mid -->
-<spawners>
-    <spawner spawn-region="iron-spawner" player-region="map" max-entities="50" min-delay="6s" max-delay="7s">
-        <item amount="1" material="iron ingot"/>
-    </spawner>
-</spawners>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" sound="false" observers="never"/>
     <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" sound="false" observers="never"/>

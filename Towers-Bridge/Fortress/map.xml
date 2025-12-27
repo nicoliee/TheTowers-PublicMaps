@@ -2,14 +2,10 @@
 <name>Fortress Bridge</name>
 <version>1.1.0</version>
 <created>2025-06-11</created>
-<objective>Score 10 points to win.</objective>
-<gamemode>scorebox</gamemode>
-<game>Towers Bridge</game>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">0</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>15</maxbuildheight>
 <authors>
@@ -48,20 +44,9 @@
     <union id="secondfloor">
         <cuboid id="secondfloor2" min="-10,19,-oo" max="10,oo,oo"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="17,oo" max="oo,-oo"/>
-            <rectangle min="-17,oo" max="-oo,-oo"/>
-            <rectangle min="oo,45" max="-oo,oo"/>
-            <rectangle min="oo,-45" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(brick))"/>
-    <apply region="secondfloor2" lend-kit="kill"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-17,-45" max="17,45"/></negative>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@0" observers="never"/>

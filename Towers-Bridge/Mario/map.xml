@@ -2,14 +2,10 @@
 <name>Mario Bridge</name>
 <version>1.1.0</version>
 <created>2024-05-29</created>
-<objective>Score 10 points to win.</objective>
-<game>Towers Bridge</game>
-<gamemode>scorebox</gamemode>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">15</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>32</maxbuildheight>
 <authors>
@@ -39,6 +35,9 @@
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="104,25,59" max="107,25.5,62"/>
         <cuboid id="red-scorebox" min="34,25,59" max="37,25.5,62"/>
+    </union>
+    <union id="map-boundaries">
+        <negative><rectangle min="29,39" max="112,82"/></negative>
     </union>
     <!-- applications -->
     <apply region="spawns" block="never" message="No puedes modificar esta zona."/>

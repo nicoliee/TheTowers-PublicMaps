@@ -2,14 +2,10 @@
 <name>Navidad Bridge</name>
 <version>1.1.0</version>
 <created>2025-11-27</created>
-<objective>Score 10 points to win.</objective>
-<gamemode>scorebox</gamemode>
-<game>Towers Bridge</game>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">1</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>17</maxbuildheight>
 <authors>
@@ -46,19 +42,9 @@
         <cuboid id="blue-scorebox" min="29,10,98" max="32,10.5,101"/>
         <cuboid id="red-scorebox" min="-32,10,98" max="-29,10.5,101"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="40,oo" max="oo,-oo"/>
-            <rectangle min="-40,oo" max="-oo,-oo"/>
-            <rectangle min="oo,120" max="-oo,oo"/>
-            <rectangle min="oo,78" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(blocks))"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-40,78" max="40,120"/></negative>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>

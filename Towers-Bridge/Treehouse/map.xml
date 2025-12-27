@@ -2,14 +2,10 @@
 <name>Treehouse Bridge</name>
 <version>1.1.0</version>
 <created>2025-11-27</created>
-<objective>Score 10 points to win.</objective>
-<gamemode>scorebox</gamemode>
-<game>Towers Bridge</game>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">1</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>19</maxbuildheight>
 <authors>
@@ -39,19 +35,9 @@
         <cuboid id="blue-scorebox" min="29,12,-233" max="32,12.5,-230"/>
         <cuboid id="red-scorebox" min="-32,12,-233" max="-29,12.5,-230"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="40,oo" max="oo,-oo"/>
-            <rectangle min="-40,oo" max="-oo,-oo"/>
-            <rectangle min="oo,-209" max="-oo,oo"/>
-            <rectangle min="oo,-253" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(brick))"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-40,-253" max="40,-209"/></negative>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>

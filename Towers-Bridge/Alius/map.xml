@@ -2,14 +2,10 @@
 <name>Alius Bridge</name>
 <version>1.1.0</version>
 <created>2025-06-15</created>
-<objective>Score 10 points to win.</objective>
-<game>Towers Bridge</game>
-<gamemode>scorebox</gamemode>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">15</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>32</maxbuildheight>
 <authors>
@@ -43,19 +39,9 @@
         <cuboid id="blue-scorebox" min="-33,25,-1" max="-36,25.5,2"/>
         <cuboid id="red-scorebox" min="34,25,-1" max="37,25.5,2"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="44,oo" max="oo,-oo"/>
-            <rectangle min="-43,oo" max="-oo,-oo"/>
-            <rectangle min="oo,18" max="-oo,oo"/>
-            <rectangle min="oo,-17" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(brick))"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-42,17" max="43,-16"/></negative>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" observers="never"/>

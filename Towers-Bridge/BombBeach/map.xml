@@ -1,19 +1,16 @@
 <map proto="1.4.2">
 <name>BombBeach Bridge</name>
-<version>1.1.0</version>
+<version>2.0.0</version>
 <created>2024-07-22</created>
-<objective>Score 10 points to win.</objective>
-<gamemode>scorebox</gamemode>
-<game>Towers Bridge</game>
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
     <constant id="void-plane">0</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <maxbuildheight>17</maxbuildheight>
 <authors>
     <author uuid="e5951644-77cd-40d0-85be-33594f0cae17"/> <!-- Alkaziaq -->
+    <author uuid="1b63d602-29f8-4acb-b1cf-a86d8f8378cd"/> <!-- ppits -->
 </authors>
 <contributors>
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
@@ -23,35 +20,25 @@
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>0, 13, 0</point>
+            <point>-8.5, 13, 0.5</point>
         </regions>
     </default>
 </spawns>
 <regions>
-    <point id="blue-spawn-point">-25.5,17,0.5</point>
-    <point id="red-spawn-point">25.5,17,0.5</point>
+    <point id="blue-spawn-point">25.5,17,0.5</point>
+    <point id="red-spawn-point">-42.5,17,0.5</point>
     <union id="spawns">
-        <cuboid id="blue-scoreroom" min="-27,11,-2" max="-22,17,2"/>
-        <cuboid id="red-scoreroom" min="23,11,-2" max="27,17,2"/>
+        <cuboid id="red-scoreroom" min="-60,11,-20" max="-40,17,20"/>
+        <cuboid id="blue-scoreroom" min="23,11,-20" max="40,17,20"/>
         <cuboid id="sky" min="-18,16,-oo" max="19,oo,oo"/>
     </union>
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="-27,11,-2" max="-23,11.5,2"/>
-        <cuboid id="red-scorebox" min="23,11,-2" max="27,11.5,2"/>
+        <cuboid id="red-scorebox" min="-44,11,-1" max="-41,11.5,2"/>
+        <cuboid id="blue-scorebox" min="23,11,-1" max="27,11.5,2"/>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="37,oo" max="oo,-oo"/>
-            <rectangle min="-37,oo" max="-oo,-oo"/>
-            <rectangle min="oo,20" max="-oo,oo"/>
-            <rectangle min="oo,-20" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(brick))"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-37,-20" max="37,20"/></negative>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" observers="never"/>

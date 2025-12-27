@@ -1,9 +1,12 @@
 <map>
+<gamemode>scorebox</gamemode>
+<game>Towers Bridge</game>
+<objective>Anota 10 puntos para ganar.</objective>
 <include id="gapple-kill-reward"/>
 <include id="void-death"/>
 <teams>
-    <team id="blue-team" color="dark blue" max="2">Blue</team>
-    <team id="red-team" color="dark red" max="2">Red</team>
+    <team id="blue-team" color="dark blue" max="3">Blue</team>
+    <team id="red-team" color="dark red" max="3">Red</team>
 </teams>
 <kits>
     <kit id="spawn-kit">
@@ -27,6 +30,7 @@
         <effect duration="5">instant_damage</effect>
     </kit>
     <kit id="goal-kit">
+        <effect duration="1s" amplifier="5">regeneration</effect>
         <action>
             <set var="player_score" value="player_score+1"/>
         </action>
@@ -90,7 +94,7 @@
     <depletion>off</depletion>
 </hunger>
 <renewables>
-    <renewable region = "everywhere" interval="10s" particles="false" avoid-players="0">
+    <renewable region ="everywhere" interval="5s" particles="false" avoid-players="1">
         <renew-filter>
             <any>
                 <material>air</material>
@@ -104,7 +108,7 @@
     </renewable>
 </renewables>
 <respawns>
-  <respawn delay="3s" filter="at-least-8" auto="true" blackout="true"/>
+  <respawn delay="2.5s" filter="at-least-8" auto="true" blackout="true"/>
 </respawns>
 <respawn delay="2s" auto="true" blackout="true"/>
 <disabledamage>
@@ -126,4 +130,17 @@
         </filter>
     </rule>
 </block-drops>
+<portals>
+        <portal filter="only-red" region="red-scorebox" y="@-110" sound="false"/>
+        <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false"/>
+</portals>
+<regions>
+    <apply region="red-scorebox" kit="void-death" filter="only-red"/>
+    <apply region="blue-scorebox" kit="void-death" filter="only-blue"/>
+    <apply block="deny(not(brick))"/>
+    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
+    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa." region="map-boundaries"/>
+</regions>
 </map>
