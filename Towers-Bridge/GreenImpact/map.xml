@@ -19,7 +19,7 @@
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>0, 18, 0</point>
+            <point>0, 12, 0</point>
         </regions>
     </default>
 </spawns>

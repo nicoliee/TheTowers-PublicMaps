@@ -39,19 +39,6 @@
     <union id="map-boundaries">
         <negative><rectangle min="29,39" max="112,82"/></negative>
     </union>
-    <!-- applications -->
-    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
-    <apply block="never" message="No puedes salir del mapa.">
-        <region>
-            <rectangle min="112,oo" max="oo,-oo"/>
-            <rectangle min="29,oo" max="-oo,-oo"/>
-            <rectangle min="oo,82" max="-oo,oo"/>
-            <rectangle min="oo,39" max="-oo,-oo"/>
-        </region>
-    </apply>
-    <apply block="deny(not(brick))"/>
-    <apply region="blue-scorebox" kit="goal-kit" filter="only-red"/>
-    <apply region="red-scorebox" kit="goal-kit" filter="only-blue"/>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>

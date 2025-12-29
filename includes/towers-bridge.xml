@@ -21,7 +21,7 @@
         <chestplate team-color="true" unbreakable="true" material="leather chestplate"/>
         <leggings team-color="true" unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
         <boots team-color="true" unbreakable="true" material="iron boots"/>
-        <effect duration="1s" amplifier="5">resistance</effect>
+        <effect duration="0.5s" amplifier="255">resistance</effect>
         <effect duration="1s" amplifier="5">regeneration</effect>
         <clear/>
     </kit>
@@ -30,7 +30,7 @@
         <effect duration="5">instant_damage</effect>
     </kit>
     <kit id="goal-kit">
-        <effect duration="1s" amplifier="5">regeneration</effect>
+        <effect duration="1s" amplifier="255">regeneration</effect>
         <action>
             <set var="player_score" value="player_score+1"/>
         </action>
@@ -131,8 +131,8 @@
     </rule>
 </block-drops>
 <portals>
-        <portal filter="only-red" region="red-scorebox" y="@-110" sound="false" observers="never"/>
-        <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false" observers="never"/>
+    <portal filter="only-red" region="red-scorebox" y="@-110" sound="false" observers="never"/>
+    <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false" observers="never"/>
 </portals>
 <regions>
     <apply region="red-scorebox" kit="void-death" filter="only-red"/>

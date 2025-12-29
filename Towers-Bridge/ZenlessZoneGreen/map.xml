@@ -1,5 +1,5 @@
 <map proto="1.4.2">
-<name>Towers Bridge</name>
+<name>ZenlessZoneGreen Bridge</name>
 <version>1.1.0</version>
 <created>2024-07-22</created>
 <phase>development</phase>
@@ -9,10 +9,10 @@
 </constants>
 <maxbuildheight>17</maxbuildheight>
 <authors>
-    <author uuid="798e95d7-3e17-43b7-ad2a-a9c7348070c8"/> <!-- Wildya -->
+    <author uuid="795d527c-1330-4e3e-94ec-719b63b6a8c6"/> <!-- iGreenBrothres_ -->
 </authors>
 <contributors>
-    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML "/> <!-- nicolieeee -->
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
 </contributors>
 <spawns>
     <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="-90"/>
