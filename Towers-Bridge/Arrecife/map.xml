@@ -1,0 +1,57 @@
+<map proto="1.4.2">
+<name>Arrecife Bridge</name>
+<version>1.1.0</version>
+<created>2025-12-28</created>
+<phase>development</phase>
+<include id="towers-bridge"/>
+<constants>
+    <constant id="void-plane">0</constant>
+</constants>
+<maxbuildheight>27</maxbuildheight>
+<authors>
+    <author uuid="233d04a2-6bd3-440e-979d-969f415e9ad1"/> <!-- Salgadoh -->
+</authors>
+<contributors>
+    <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
+</contributors>
+<spawns>
+    <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="90"/>
+    <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="-90"/>
+    <default yaw="180">
+        <regions>
+            <point>0.5, 34, -37.5</point>
+        </regions>
+    </default>
+</spawns>
+<itemremove>
+    <item>seeds</item>
+    <item>ladder</item>
+</itemremove>
+<regions>
+    <point id="red-spawn-point">-33.5,27,0.5</point>
+    <point id="blue-spawn-point">34.5,27,0.5</point>
+    <union id="spawns">
+        <cuboid id="red-scoreroom" min="-31,19,3" max="-37,25,-2"/>
+        <cuboid id="blue-scoreroom" min="32,19,-2" max="38,25,3"/>
+        <cuboid id="sky" min="-28,24,-oo" max="28,oo,oo"/>
+        <cuboid id="stairs1" min="-2,20,-13" max="3,25,-16"/>
+        <cuboid id="stairs2" min="-2,20,14" max="3,25,18"/>
+    </union>
+    <union id="scoreboxes">
+        <cuboid id="red-scorebox" min="-33,19,-2" max="-37,19.5,2"/>
+        <cuboid id="blue-scorebox" min="33,19,-2" max="37,19.5,2"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid id="secondfloor2" min="-10,32,-oo" max="10,oo,oo"/>
+    </union>
+    <union id="map-boundaries">
+        <negative><rectangle min="-45,-25" max="45,25"/></negative>
+    </union>
+    <apply use="never" region="sky"/>
+    <apply region="secondfloor" kit="kill"/>
+</regions>
+<portals pitch="@0">
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@90" observers="never"/>
+</portals>
+</map>
