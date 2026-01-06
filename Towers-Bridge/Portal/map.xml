@@ -41,9 +41,6 @@
         <cuboid id="red-scorebox" min="33,10,-2" max="37,10.5,2"/>
     </union>
     <union id="secondfloor">
-        <cuboid min="-5,17,-oo" max="6,oo,oo"/>
-    </union>
-    <union id="secondfloor">
         <cuboid min="-6,17,-oo" max="7,oo,oo"/>
     </union>
     <union id="map-boundaries">

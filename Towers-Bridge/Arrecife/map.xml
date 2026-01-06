@@ -41,11 +41,13 @@
         <cuboid id="red-scorebox" min="-33,19,-2" max="-37,19.5,2"/>
         <cuboid id="blue-scorebox" min="33,19,-2" max="37,19.5,2"/>
     </union>
+    <union id="secondfloor">
+        <cuboid min="0,0,0" max="0,0,0"/>
+    </union>
     <union id="map-boundaries">
         <negative><rectangle min="-45,-25" max="45,25"/></negative>
     </union>
     <apply use="never" region="sky"/>
-    <apply region="secondfloor" kit="kill"/>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>

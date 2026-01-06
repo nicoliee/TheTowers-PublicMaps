@@ -135,7 +135,7 @@
     <portal filter="only-blue" region="blue-scorebox" y="@-110" sound="false" observers="never"/>
 </portals>
 <regions>
-    <apply region="second-floor" kit="kill"/>
+    <apply region="secondfloor" kit="kill"/>
     <apply region="red-scorebox" kit="void-death" filter="only-red"/>
     <apply region="blue-scorebox" kit="void-death" filter="only-blue"/>
     <apply block="deny(not(brick))"/>
