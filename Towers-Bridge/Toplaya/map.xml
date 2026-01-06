@@ -37,7 +37,7 @@
         <cuboid id="red-scorebox" min="79,25,17" max="82,25.5,20"/>
     </union>
     <union id="secondfloor">
-        <cuboid id="secondfloor2" min="28,33,-oo" max="61,oo,oo"/>
+        <cuboid min="28,32,-oo" max="61,oo,oo"/>
     </union>
     <union id="map-boundaries">
         <negative><rectangle min="4,8" max="87,29"/></negative>

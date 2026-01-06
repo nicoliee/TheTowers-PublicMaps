@@ -176,4 +176,14 @@
 </score>
 <respawn delay="3s" auto="true"/>
 <time overtime="1s">30m</time>
+<regions>
+    <apply region="red-chests" use="only-red" message="No puedes abrir cofres enemigos"/>
+    <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-chests" use="only-blue" message="No puedes abrir cofres enemigos"/>
+    <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
+    <apply region="blue-scorebox" kit="heal" filter="only-red"/>
+    <apply region="red-scorebox" kit="heal" filter="only-blue"/>
+    <apply region="spawns" block="never" message="No puedes modificar esta zona."/>
+    <apply block="never" message="No puedes salir del mapa." region="map-boundaries"/>
+</regions>
 </map>

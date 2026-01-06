@@ -24,12 +24,6 @@
         </regions>
     </default>
 </spawns>
-<filters>
-    <any id="blocks">
-        <material>SNOW</material>
-        <material>BRICK</material>
-    </any>   
-</filters>
 <regions>
     <point id="blue-spawn-point">30.5,17,99.5</point>
     <point id="red-spawn-point">-30.5,17,99.5</point>
@@ -41,6 +35,9 @@
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="29,10,98" max="32,10.5,101"/>
         <cuboid id="red-scorebox" min="-32,10,98" max="-29,10.5,101"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid min="-6,19,-oo" max="7,oo,oo"/>
     </union>
     <union id="map-boundaries">
         <negative><rectangle min="-40,78" max="40,120"/></negative>

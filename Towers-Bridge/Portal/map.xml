@@ -34,13 +34,17 @@
         <cuboid id="blue-scoreroom" min="-32,10,3" max="-37,16,-2"/>
         <cuboid id="red-scoreroom" min="33,10,-2" max="38,16,3"/>
         <cuboid id="sky" min="-28,15,-oo" max="28,oo,oo"/>
+        <cuboid id="center" min="-1,10,-1" max="2,12,2"/>
     </union>
     <union id="scoreboxes">
         <cuboid id="blue-scorebox" min="-33,10,-2" max="-37,10.5,2"/>
         <cuboid id="red-scorebox" min="33,10,-2" max="37,10.5,2"/>
     </union>
     <union id="secondfloor">
-        <cuboid id="secondfloor2" min="-10,19,-oo" max="10,oo,oo"/>
+        <cuboid min="-5,17,-oo" max="6,oo,oo"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid min="-6,17,-oo" max="7,oo,oo"/>
     </union>
     <union id="map-boundaries">
         <negative><rectangle min="-45,-25" max="45,25"/></negative>

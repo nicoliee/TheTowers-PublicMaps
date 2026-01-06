@@ -199,7 +199,7 @@
     <apply block="never" message="No puedes salir del mapa." region="map-boundaries"/>
 </regions>
 <spawners>
-    <spawner spawn-region="iron-spawner" player-region="map" max-entities="50" min-delay="6s" max-delay="7s">
+    <spawner spawn-region="iron-spawner" player-region="everywhere" max-entities="48" delay="6s">
         <item amount="1" material="iron ingot"/>
     </spawner>
 </spawners>

@@ -32,7 +32,6 @@
     <point id="red-spawn-point">14.5, 12, 54.5</point>
     <union id="itemspawner">
         <cuboid id="iron-spawner" min="14.5,25,2.5" max="14.5,25.5,2.5"/>
-        <cuboid id="map" min="-oo,-oo,-oo" max="oo,oo,oo"/>
     </union>
     <union id="red-chests">
         <cuboid id="red-chestroom-1" min="18,11,38" max="23,15,43"/>

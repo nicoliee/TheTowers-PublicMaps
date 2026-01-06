@@ -43,6 +43,9 @@
         <cuboid id="blue-scorebox" min="-33,25,-1" max="-36,25.5,2"/>
         <cuboid id="red-scorebox" min="34,25,-1" max="37,25.5,2"/>
     </union>
+    <union id="secondfloor">
+        <cuboid min="-8,34,-oo" max="9,oo,oo"/>
+    </union>
     <union id="map-boundaries">
         <negative><rectangle min="-43,-17" max="44,18"/></negative>
     </union>
