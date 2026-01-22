@@ -21,7 +21,7 @@
     </default>
 </spawns>
 <regions>
-    <point id="blue-spawn-point">-35.5,17,0.5</point>
+    <point id="blue-spawn-point">-34.5,17,0.5</point>
     <point id="red-spawn-point">35.5,17,0.5</point>
     <union id="spawns">
         <cuboid id="blue-scoreroom" min="-32,10,3" max="-37,16,-2"/>
@@ -33,8 +33,9 @@
         <cuboid id="red-scorebox" min="33,10,-2" max="37,10.5,2"/>
     </union>
     <union id="secondfloor">
-        <cuboid min="-10,19,-oo" max="10,oo,oo"/>
+        <cuboid min="-10,18,-oo" max="10,oo,oo"/>
     </union>
+    <apply region="secondfloor" kit="kill"/>
     <union id="map-boundaries">
         <negative><rectangle min="-45,-25" max="45,25"/></negative>
     </union>

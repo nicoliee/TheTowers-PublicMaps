@@ -1,17 +1,19 @@
 <map proto="1.4.2">
-<name>Green Towers:TE</name>
+<name>Green Towers</name>
 <version>1.0.0</version>
 <created>2025-09-25</created>
 <phase>staging</phase>
-
+<include id="gapple-kill-reward"/>
+<include id="void-death"/>
 <include id="towers"/>
+<variant id="tournament">TE</variant>
+<variant id="ranked" world="ranked">Ranked</variant>
+<variant id="nano" world="ranked">Nano</variant>
 <constants>
     <constant id="void-plane">-20</constant>
-    <constant id="affect-obs">never</constant>
 </constants>
 <authors>
     <author uuid="795d527c-1330-4e3e-94ec-719b63b6a8c6" contribution="Builder"/> <!-- iGreenBrothres_ -->
-    <author uuid="64b292be-faf3-4964-b826-2d0051a245cb" contribution="Builder"/> <!-- sAutismm -->
 </authors>
 <contributors>
     <contributor uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592" contribution="XML"/> <!-- nicolieeee -->
@@ -22,7 +24,7 @@
     <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="90"/>
     <default yaw="180">
         <regions>
-            <point>0,17,0.5</point>
+            <point>0.5,17,0.5</point>
         </regions>
     </default>
 </spawns>
@@ -30,7 +32,14 @@
     <point id="blue-spawn-point">-50.5, 12, 0.5</point>
     <point id="red-spawn-point">51.5, 12, 0.5</point>
     <union id="itemspawner">
-        <cuboid id="iron-spawner" min="0.5,24,0.5" max="0.5,24.5,0.5"/>
+        <if variant="default">
+            <cuboid id="iron-spawner" min="0.5,24,-13.5" max="0.5,24.5,-13.5"/>
+            <cuboid id="lapis-spawner" min="0.5,24,0.5" max="0.5,24.5,0.5"/>
+            <cuboid id="xp-spawner" min="0.5,24,14.5" max="0.5,24.5,14.5"/>
+        </if>
+        <unless variant="default">
+            <cuboid id="iron-spawner" min="0.5,24,0.5" max="0.5,24.5,0.5"/>
+        </unless>
     </union>
     <union id="red-chests">
         <cuboid id="red-chestroom-1" min="36,11,-11" max="41,15,-2"/>
@@ -67,8 +76,4 @@
         <negative><rectangle min="-59,-22" max="60,23"/></negative>
     </union>
 </regions>
-<portals pitch="@0">
-    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@90" sound="false" observers="never"/>
-    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@-90" sound="false" observers="never"/>
-</portals>
 </map>

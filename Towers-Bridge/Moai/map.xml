@@ -46,6 +46,7 @@
     <union id="secondfloor">
         <cuboid min="-8,34,-oo" max="9,oo,oo"/>
     </union>
+    <apply region="secondfloor" kit="kill"/>
     <union id="map-boundaries">
         <negative><rectangle min="-43,-17" max="44,18"/></negative>
     </union>
