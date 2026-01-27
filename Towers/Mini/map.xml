@@ -93,4 +93,8 @@
         <negative><rectangle min="-6,-58" max="35,63"/></negative>
     </union>
 </regions>
+<portals pitch="@0">
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@180" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@0" observers="never"/>
+</portals>
 </map>
