@@ -11,6 +11,10 @@
         <rule>Tiempo de reaparición aumentado</rule>
         <rule>No se permiten cofres</rule>
     </rules>
+    <broadcasts>
+        <alert after="2s">Todos atacan y todos defienden.</alert>
+        <alert after="4s">Si te ensordeces en Discord seras sancionado.</alert>
+    </broadcasts>
 </if>
 <objective>Anota 10 puntos para ganar.</objective>
 <gamemode>scorebox</gamemode>
@@ -103,6 +107,12 @@
                 </replacements>
             </message>
         </action>
+    </kit>
+    <kit id="defense-materials">
+        <item slot="9" amount="8" material="sign"/>
+        <item slot="10" amount="8" material="workbench"/>
+        <item slot="11" amount="8" material="fence"/>
+        <item slot="12" amount="4" material="fence gate"/>
     </kit>
 </kits>
 <variables>
@@ -260,6 +270,8 @@
         <apply region="red-chests" block="never" message="No puedes modificar esta zona."/>
         <apply region="blue-chests" use="never" message="No puedes abrir cofres."/>
         <apply region="blue-chests" block="never" message="No puedes modificar esta zona."/>
+        <apply region="blue-defense-area" filter="only-blue" kit="defense-materials"/>
+        <apply region="red-defense-area" filter="only-red" kit="defense-materials"/>
     </if>
 </regions>
 <spawners>

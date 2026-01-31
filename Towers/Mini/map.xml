@@ -92,6 +92,14 @@
     <union id="map-boundaries">
         <negative><rectangle min="-6,-58" max="35,63"/></negative>
     </union>
+    <union id="bases">
+        <rectangle id="blue-base" min="-oo,-oo" max="oo,-16"/>
+        <rectangle id="blue-defense" min="-oo,-oo" max="oo,-32"/>
+        <cuboid id="blue-defense-area" min="9,17,-55" max="20,42,-44"/>
+        <rectangle id="red-base" min="-oo,21" max="oo,oo"/>
+        <rectangle id="red-defense" min="-oo,36" max="oo,oo"/>
+        <cuboid id="red-defense-area" min="9,17,49" max="20,42,60"/>
+    </union>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@180" observers="never"/>
