@@ -104,8 +104,14 @@
         </if>
     </union>
     <union id="scoreboxes">
-        <cuboid id="blue-scorebox" min="-74,20,2" max="-71,20.5,-1"/>
-        <cuboid id="red-scorebox" min="72,20,2" max="75,20.5,-1"/>
+        <unless variant="default">
+            <cuboid id="blue-scorebox" min="-67,20,2" max="-64,20.5,-1"/>
+            <cuboid id="red-scorebox" min="65,20,2" max="68,20.5,-1"/>
+        </unless>
+        <if variant="default">
+            <cuboid id="blue-scorebox" min="-74,20,2" max="-71,20.5,-1"/>
+            <cuboid id="red-scorebox" min="72,20,2" max="75,20.5,-1"/>
+        </if>
     </union>
     <union id="map-boundaries">
         <negative><rectangle min="-81,-22" max="82,23"/></negative>
