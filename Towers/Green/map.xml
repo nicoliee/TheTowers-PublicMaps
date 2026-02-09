@@ -71,6 +71,12 @@
         <cuboid id="blue-scorebox" min="-52,20,-1" max="-49,20.5,2"/>
         <cuboid id="red-scorebox" min="50,20,-1" max="53,20.5,2"/>
     </union>
+    <union id="bases">
+        <rectangle id="blue-defense" min="-oo,-oo" max="-41,oo"/>
+        <rectangle id="red-defense" min="42,-oo" max="oo,oo"/>
+        <cuboid id="blue-defense-area" min="-56,17,-5" max="-45,42,6"/>
+        <cuboid id="red-defense-area" min="46,17,-5" max="57,42,6"/>
+    </union>
     <!-- map boundaries -->
     <union id="map-boundaries">
         <negative><rectangle min="-59,-22" max="60,23"/></negative>

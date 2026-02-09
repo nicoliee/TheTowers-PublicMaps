@@ -38,9 +38,9 @@
 <if variant="ranked">
     <constant id="blue-team-size">8</constant>
     <constant id="red-team-size">8</constant>
-    <constant id="respawn-delay">2s</constant>
+    <constant id="respawn-delay">4s</constant>
     <constant id="max-item-spawner">32</constant>
-    <constant id="time-limit">30m</constant>
+    <constant id="time-limit">15m</constant>
     <constant id="armor-locked">true</constant>
 </if>
 <teams>
@@ -238,7 +238,7 @@
     <if variant="ranked">
         <kill-reward>
             <kit deduct-items="true">
-                <item amount="8" material="Slime Block"/>
+                <item amount="6" material="Slime Block"/>
                 <item amount="20" material="arrow"/>
             </kit>
             <item amount="16" material="Wood"/>
