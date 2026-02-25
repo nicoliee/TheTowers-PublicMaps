@@ -44,7 +44,6 @@
     <union id="map-boundaries">
         <negative><rectangle min="-45,-25" max="45,25"/></negative>
     </union>
-    <apply use="never" region="sky"/>
 </regions>
 <portals pitch="@0">
     <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>
