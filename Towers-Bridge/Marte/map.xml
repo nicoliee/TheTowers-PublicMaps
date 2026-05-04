@@ -5,7 +5,7 @@
 <phase>development</phase>
 <include id="towers-bridge"/>
 <constants>
-    <constant id="void-plane">0</constant>
+    <constant id="void-plane">19</constant>
 </constants>
 <maxbuildheight>36</maxbuildheight>
 <kits>
