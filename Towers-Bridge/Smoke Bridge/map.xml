@@ -1,0 +1,51 @@
+<map proto="1.4.2">
+<name>Smoke Bridge</name>
+<version>1.1.0</version>
+<created>2026-06-12</created>
+<phase>development</phase>
+<include id="towers-bridge"/>
+<constants>
+    <constant id="void-plane">0</constant>
+</constants>
+<maxbuildheight>16</maxbuildheight>
+<authors>
+    <author uuid="0cd8d8fe-8baf-4603-9ea3-4214283b9592"/> <!-- nicolieeee -->
+</authors>
+<spawns>
+    <spawn team="blue-team" kit="spawn-kit" region="blue-spawn-point" yaw="90"/>
+    <spawn team="red-team" kit="spawn-kit" region="red-spawn-point" yaw="-90"/>
+    <default yaw="180">
+        <regions>
+            <point>0.5,12,0.5</point>
+        </regions>
+    </default>
+</spawns>
+<regions>
+    <point id="blue-spawn-point">37.5,16,0.5</point>
+    <point id="red-spawn-point">-36.5,16,0.5</point>
+    <union id="spawns">
+        <cuboid id="blue-scoreroom" min="35,9,-2" max="40,15,3"/>
+        <cuboid id="red-scoreroom" min="-39,9,-2" max="-34,15,3"/>
+        <cuboid id="sky" min="-31,14,-oo" max="-3,oo,oo"/>
+        <cuboid id="sky2" min="4,14,-oo" max="32,oo,oo"/>
+        <cuboid id="sky-mid" min="-3,15,-oo" max="4,oo,oo"/>
+        <cuboid id="sky-south" min="-15,14,8" max="15,oo,oo"/>
+        <cuboid id="sky-north" min="-15,13,-oo" max="15,oo,-6"/>
+    </union>
+    <union id="scoreboxes">
+        <cuboid id="blue-scorebox" min="36,9,-1" max="39,9.5,2"/>
+        <cuboid id="red-scorebox" min="-38,9,-1" max="-35,9.5,2"/>
+    </union>
+    <union id="secondfloor">
+        <cuboid min="-6,34,-oo" max="7,oo,oo"/>
+    </union>
+    <apply region="secondfloor" kit="kill"/>
+    <union id="map-boundaries">
+        <negative><rectangle min="-42,17" max="43,-16"/></negative>
+    </union>
+</regions>
+<portals pitch="@0">
+    <portal filter="only-red" region="blue-scorebox" destination="red-spawn-point" yaw="@-90" observers="never"/>
+    <portal filter="only-blue" region="red-scorebox" destination="blue-spawn-point" yaw="@90" observers="never"/>
+</portals>
+</map>
